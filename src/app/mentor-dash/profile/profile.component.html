@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Student Mentor Interface</title>
+    <link rel="stylesheet" href="profile.component.css">
+</head>
+<body>
+    <div class="dashboard">
+        <nav class="dashboard-nav">
+            <a href="/my_project/src/app/auth/login-mentor/login-mentor.component.html" class="back-button">
+                <i class="fas fa-arrow-left"></i>
+                <span>Back to Profile</span>
+            </a>
+        </nav>
+        <div class="nav-bar">
+            <h2>Faculty Dashboard</h2>
+            <div class="notification">
+                <svg class="bell-icon" viewBox="0 0 24 24">
+                    <path d="M12 22c1.1 0 2-.9 2-2h-4c0 1.1.89 2 2 2zm6-6v-5c0-3.07-1.64-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.63 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2z"/>
+                </svg>
+                <div class="notification-dot"></div>
+            </div>
+        </div>
+
+        <div class="profile-grid">
+            <!-- Profile Card -->
+            <div class="profile-card">
+                <div class="profile-header">
+                    <img src="https://archive.org/download/whatsapp-smiling-guy-i-accidentally-made/whatsapp%20generic%20person%20dark.jpg" alt="Faculty" class="profile-image">
+                    <h2>Dr. Sarah Johnson</h2>
+                    <p>Professor of Computer Science</p>
+                </div>
+
+                <div class="info-grid">
+                    <div class="info-item">
+                        <span class="info-label">Employee ID</span>
+                        <span class="info-value">PRU001234</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Department</span>
+                        <span class="info-value">Computer Science</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Email</span>
+                        <span class="info-value">sarah.j@university.edu</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Office</span>
+                        <span class="info-value">Room 405, Block B</span>
+                    </div>
+                </div>
+
+                <div class="quick-stats">
+                    <div class="stat">
+                        <div class="stat-value">15</div>
+                        <div class="stat-label">Courses</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-value">24</div>
+                        <div class="stat-label">Hours/Week</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-value">3</div>
+                        <div class="stat-label">Labs</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Details Section -->
+            <div class="details-section">
+                <div class="details-card">
+                    <h3 class="card-title">Today's Schedule</h3>
+                    <div class="schedule-item">
+                        <span>CSE3097 - Web Security</span>
+                        <span>08:50 AM - 09:45 AM</span>
+                    </div>
+                    <div class="schedule-item">
+                        <span>MAT2031 - Optimization</span>
+                        <span>09:45 AM - 10:40 AM</span>
+                    </div>
+                    <div class="see-more-container">
+                    </div>
+                </div>
+
+                <div class="details-card">
+                    <h3 class="card-title">Sessions</h3>
+                    <div class="schedule-item">
+                        <span>Machine Learning Workshop</span>
+                        <span>Feb 12, 3:00 PM</span>
+                    </div>
+                    <div class="schedule-item">
+                        <span>Research Methodology Seminar</span>
+                        <span>Feb 15, 2:30 PM</span>
+                    </div>
+                    <div class="see-more-container">
+                        <a href="../meetings/meetings.component.html" class="see-more">See More</a>
+                    </div>
+                </div>
+
+                <div class="details-card">
+                    <h3 class="card-title">TAs</h3>
+                    <div class="schedule-item">
+                        <span>Emily Chen</span>
+                        <span>Digital Systems Lab</span>
+                    </div>
+                    <div class="schedule-item">
+                        <span>Michael Rodriguez</span>
+                        <span>Web Development Lab</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Previous dashboard content remains the same -->
+
+    <script>
+        // Fix schedule item click handler
+scheduleItems.forEach(item => {
+    item.addEventListener('click', function() {
+        const time = this.querySelector('span:last-child').textContent;
+        showToast(`Schedule: ${time}`);  // Fixed template literal
+    });
+});
+
+// Fix navigation handling
+navLinks.forEach(link => {
+    if (link.id !== 'logout') {  // Fixed condition
+        link.addEventListener('click', function(e) {
+            navLinks.forEach(l => l.classList.remove('active'));
+            this.classList.add('active');
+            
+            if (this.dataset.page !== 'dashboard') {
+                showLoading();
+            }
+        });
+    }
+});
+
+// Fix datetime update
+function updateDateTime() {
+    const now = new Date();
+    const options = { 
+        weekday: 'long', 
+        year: 'numeric', 
+        month: 'long', 
+        day: 'numeric',
+        hour: '2-digit',
+        minute: '2-digit'
+    };
+    const dateTimeElement = document.querySelector('.nav-bar h2');
+    if (dateTimeElement) {  // Added null check
+        dateTimeElement.textContent = 
+            `Faculty Dashboard - ${now.toLocaleDateString('en-US', options)}`;  // Fixed template literal
+    }
+}
+    </script>
+</body>
+</html>

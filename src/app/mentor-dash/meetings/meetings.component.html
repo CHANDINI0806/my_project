@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Faculty Dashboard</title>
+    <link rel="stylesheet" href="meetings.component.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="dashboard">
+        <!-- Navigation -->
+        <nav class="dashboard-nav">
+            <a href="../profile/profile.component.html" class="back-button">
+                <i class="fas fa-arrow-left"></i>
+                <span>Back to Profile</span>
+            </a>
+            <!-- Search Bar -->
+            <div class="search-container">
+                <input type="text" id="meetingSearch" placeholder="Search meetings..." 
+                    onkeyup="searchMeetings()" class="search-input">
+                <button onclick="openAddMeetingModal()" class="add-meeting-btn">
+                    <i class="fas fa-plus"></i> Add Meeting
+                </button>
+            </div>
+        </nav>
+
+        <!-- Meeting Categories Tabs -->
+        <div class="meeting-tabs">
+            <button class="tab-btn active" data-type="all">All</button>
+            <button class="tab-btn" data-type="offline">Offline</button>
+            <button class="tab-btn" data-type="online">Online</button>
+            <button class="tab-btn" data-type="ta-led">TA-Led</button>
+        </div>
+
+        <div class="details-section">
+            <!-- Offline Sessions -->
+            <div class="details-card" data-category="offline">
+                <h3 class="card-title">Offline Backlog Assistance Sessions</h3>
+                <div class="session-box" data-meeting-id="1">
+                    <div class="session-info">
+                        <h4>Algorithms Tutoring</h4>
+                        <p>Room 301, Tuesdays 3:00 PM</p>
+                    </div>
+                    <div class="session-actions">
+                        <button class="edit-btn" onclick="editMeeting('1')">
+                            <i class="fas fa-edit"></i>
+                        </button>
+                        <button class="delete-btn" onclick="deleteMeeting('1')">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                    </div>
+                </div>
+                <!-- Similar structure for other offline meetings -->
+            </div>
+
+            <!-- Online Sessions -->
+            <div class="details-card" data-category="online">
+                <h3 class="card-title">Online Backlog Assistance Sessions</h3>
+                <div class="session-box" data-meeting-id="3">
+                    <div class="session-info">
+                        <h4>Database Troubleshooting</h4>
+                        <p>Online, Wednesdays 2:00 PM</p>
+                    </div>
+                    <div class="session-actions">
+                        <a href="#" class="session-action session-start">Start Session</a>
+                        <button class="edit-btn" onclick="editMeeting('3')">
+                            <i class="fas fa-edit"></i>
+                        </button>
+                        <button class="delete-btn" onclick="deleteMeeting('3')">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TA-Led Sessions -->
+            <div class="details-card" data-category="ta-led">
+                <h3 class="card-title">TA-Led Sessions</h3>
+                <!-- Similar structure for TA-led sessions -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Add/Edit Meeting Modal -->
+    <div id="meetingModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2 id="modalTitle">Add New Meeting</h2>
+            <form id="meetingForm" onsubmit="handleMeetingSubmit(event)">
+                <input type="hidden" id="meetingId">
+                <select id="meetingType" required>
+                    <option value="offline">Offline Meeting</option>
+                    <option value="online">Online Meeting</option>
+                    <option value="ta-led">TA-Led Session</option>
+                </select>
+                <input type="text" id="meetingTitle" placeholder="Meeting Title" required>
+                <input type="text" id="location" placeholder="Location/Room" required>
+                <input type="datetime-local" id="meetingTime" required>
+                <input type="text" id="instructor" placeholder="Instructor Name">
+                <button type="submit" id="submitMeeting">Save Meeting</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Delete Confirmation Modal -->
+    <div id="deleteModal" class="modal">
+        <div class="modal-content">
+            <h2>Confirm Delete</h2>
+            <p>Are you sure you want to delete this meeting?</p>
+            <div class="modal-actions">
+                <button onclick="confirmDelete()" class="delete-confirm-btn">Delete</button>
+                <button onclick="closeDeleteModal()" class="cancel-btn">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Implementation functions for search, add, edit, and delete
+        function searchMeetings() {
+            const searchInput = document.getElementById('meetingSearch').value.toLowerCase();
+            const sessions = document.querySelectorAll('.session-box');
+            
+            sessions.forEach(session => {
+                const title = session.querySelector('h4').textContent.toLowerCase();
+                const info = session.querySelector('p').textContent.toLowerCase();
+                const shouldShow = title.includes(searchInput) || info.includes(searchInput);
+                session.style.display = shouldShow ? 'flex' : 'none';
+            });
+        }
+
+        function openAddMeetingModal() {
+            document.getElementById('meetingModal').style.display = 'block';
+            document.getElementById('meetingForm').reset();
+        }
+
+        function editMeeting(meetingId) {
+            // Populate form with meeting data
+            document.getElementById('meetingModal').style.display = 'block';
+            document.getElementById('meetingId').value = meetingId;
+            // Fetch and populate meeting data here
+        }
+
+        function deleteMeeting(meetingId) {
+            document.getElementById('deleteModal').style.display = 'block';
+            // Store meeting ID for deletion
+            document.getElementById('deleteModal').dataset.meetingId = meetingId;
+        }
+
+        async function handleMeetingSubmit(event) {
+            event.preventDefault();
+            const formData = new FormData(event.target);
+            // Handle form submission to backend
+            // API call here
+        }
+
+        // Add other necessary JavaScript functions
+    </script>
+</body>
+</html>

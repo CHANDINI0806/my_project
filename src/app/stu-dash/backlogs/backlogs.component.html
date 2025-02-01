@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Backlog Overview</title>
+    <link rel="stylesheet" href="backlogs.component.css">
+</head>
+<body>
+    <div class="backlog-container">
+        <!-- Navigation Bar -->
+        <nav class="dashboard-nav">
+            <a href="../overview/overview.component.html" class="back-button">
+                <i class="fas fa-arrow-left"></i>
+                <span>Back to Overview</span>
+            </a>
+            <h2 class="nav-title">Backlog Management</h2>
+        </nav>
+
+        <!-- Header Section --> 
+        <div class="section-header">
+            <div class="header-content">
+                <h2>Backlog Overview</h2>
+                <div class="header-stats">
+                    <span class="total-backlogs">Total Backlogs: <strong>2</strong></span>
+                    <span class="pending-backlogs">Pending: <strong>1</strong></span>
+                    <span class="registered-backlogs">Registered: <strong>1</strong></span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Semester-wise Backlog Graph --> 
+        <div class="graph-container">
+            <div class="graph-title">
+                <h3>Semester-wise Backlog History</h3>
+                <div class="legend">
+                    <div class="legend-item">
+                        <span class="legend-dot backlog-dot"></span>
+                        <span>Number of Backlogs</span>
+                    </div>
+                </div>
+            </div>
+            <div class="line-graph">
+                <svg viewBox="0 0 800 300">
+                    <!-- Grid Lines --> 
+                    <g class="grid-lines">
+                        <line x1="50" y1="250" x2="750" y2="250" class="grid-line"/>
+                        <line x1="50" y1="200" x2="750" y2="200" class="grid-line"/>
+                        <line x1="50" y1="150" x2="750" y2="150" class="grid-line"/>
+                        <line x1="50" y1="100" x2="750" y2="100" class="grid-line"/>
+                        <line x1="50" y1="50" x2="750" y2="50" class="grid-line"/>
+                    </g>
+
+                    <!-- Y-axis labels -->
+                    <g class="y-axis">
+                        <text x="30" y="250">0</text>
+                        <text x="30" y="200">1</text>
+                        <text x="30" y="150">2</text>
+                        <text x="30" y="100">3</text>
+                        <text x="30" y="50">4</text>
+                    </g>
+
+                    <!-- X-axis labels -->
+                    <g class="x-axis">
+                        <text x="100" y="280">Sem 1</text>
+                        <text x="250" y="280">Sem 2</text>
+                        <text x="400" y="280">Sem 3</text>
+                        <text x="550" y="280">Sem 4</text>
+                        <text x="700" y="280">Sem 5</text>
+                    </g>
+
+                    <!-- Data Line -->
+                    <path class="data-line" 
+                          d="M100,200 L250,150 L400,100 L550,200 L700,150" 
+                          fill="none"/>
+
+                    <!-- Data Points -->
+                    <g class="data-points">
+                        <circle cx="100" cy="200" r="6"/>
+                        <circle cx="250" cy="150" r="6"/>
+                        <circle cx="400" cy="100" r="6"/>
+                        <circle cx="550" cy="200" r="6"/>
+                        <circle cx="700" cy="150" r="6"/>
+                    </g>
+                </svg>
+            </div>
+        </div>
+
+        <!-- Current Backlog Subjects -->
+        <div class="backlog-subjects">
+            <div class="subjects-header">
+                <h3>Current Backlog Subjects</h3>
+                <button class="sort-btn">
+                    <i class="fas fa-sort"></i>
+                    Sort by Date
+                </button>
+            </div>
+            
+            <div class="subject-grid">
+                <!-- Subject Box 1 -->
+                <div class="subject-box">
+                    <div class="subject-header">
+                        <span class="subject-code">CS301</span>
+                        <span class="semester-tag">Sem 4</span>
+                    </div>
+                    <h4 class="subject-name">Data Structures</h4>
+                    <div class="subject-details">
+                        <div class="detail-item">
+                            <span class="label">Status</span>
+                            <span class="value status-pending">Pending</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="label">Due Date</span>
+                            <span class="value">Mar 15, 2025</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="label">Faculty</span>
+                            <span class="value">Dr. John Smith</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="label">Credits</span>
+                            <span class="value">4</span>
+                        </div>
+                    </div>
+                    <div class="action-buttons">
+                        <button class="register-btn">Register for Exam</button>
+                        <button class="resources-btn" title="View Study Resources">
+                            <i class="fas fa-book"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Subject Box 2 -->
+                <div class="subject-box">
+                    <div class="subject-header">
+                        <span class="subject-code">CS405</span>
+                        <span class="semester-tag">Sem 5</span>
+                    </div>
+                    <h4 class="subject-name">Database Management</h4>
+                    <div class="subject-details">
+                        <div class="detail-item">
+                            <span class="label">Status</span>
+                            <span class="value status-registered">Registered</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="label">Exam Date</span>
+                            <span class="value">Apr 10, 2025</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="label">Faculty</span>
+                            <span class="value">Prof. Sarah Johnson</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="label">Credits</span>
+                            <span class="value">3</span>
+                        </div>
+                    </div>
+                    <div class="action-buttons">
+                        <button class="view-details-btn">View Details</button>
+                        <button class="resources-btn" title="View Study Resources">
+                            <i class="fas fa-book"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Study Resources Modal -->
+    <div id="resourcesModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Study Resources</h2>
+            <div class="resources-list">
+                <div class="resource-item">
+                    <i class="fas fa-file-pdf"></i>
+                    <span>Previous Year Papers</span>
+                    <button class="download-btn">Download</button>
+                </div>
+                <div class="resource-item">
+                    <i class="fas fa-video"></i>
+                    <span>Tutorial Videos</span>
+                    <button class="view-btn">View</button>
+                </div>
+                <div class="resource-item">
+                    <i class="fas fa-book-open"></i>
+                    <span>Study Notes</span>
+                    <button class="download-btn">Download</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

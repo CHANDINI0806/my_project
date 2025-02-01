@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mentor Profiles</title>
+    <link rel="stylesheet" href="profile.component.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Our Mentors</h1>
+        
+        <div class="filter-section">
+            <input type="text" class="search-input" placeholder="Search mentors...">
+            <button class="filter-button" onclick="filterMentors()">Search</button>
+        </div>
+
+        <div class="mentor-grid" id="mentorGrid">
+            <!-- Mentor cards will be dynamically inserted here -->
+        </div>
+    </div>
+
+    <script>
+        // Sample data - in a real application, this would come from a backend
+        const mentorsData = [
+            {
+                id: 1,
+                name: "Dr. Sarah Johnson",
+                title: "Senior Software Engineer",
+                expertise: "Web Development",
+                avatar: "/api/placeholder/80/80",
+                yearsExperience: 8,
+                totalStudents: 45,
+                activeStudents: 12,
+                students: [
+                    { name: "John Doe", course: "Frontend Development", avatar: "/api/placeholder/40/40" },
+                    { name: "Jane Smith", course: "Full Stack Development", avatar: "/api/placeholder/40/40" },
+                    { name: "Mike Wilson", course: "React Development", avatar: "/api/placeholder/40/40" }
+                ]
+            },
+            {
+                id: 2,
+                name: "Prof. David Chen",
+                title: "Data Science Expert",
+                expertise: "Machine Learning",
+                avatar: "/api/placeholder/80/80",
+                yearsExperience: 10,
+                totalStudents: 60,
+                activeStudents: 15,
+                students: [
+                    { name: "Emma Davis", course: "Python for ML", avatar: "/api/placeholder/40/40" },
+                    { name: "Tom Brown", course: "Deep Learning", avatar: "/api/placeholder/40/40" },
+                    { name: "Lisa Wang", course: "Data Analysis", avatar: "/api/placeholder/40/40" }
+                ]
+            },
+            {
+                id: 3,
+                name: "Maria Garcia",
+                title: "UX/UI Specialist",
+                expertise: "User Experience Design",
+                avatar: "/api/placeholder/80/80",
+                yearsExperience: 6,
+                totalStudents: 35,
+                activeStudents: 8,
+                students: [
+                    { name: "Alex Johnson", course: "UI Design", avatar: "/api/placeholder/40/40" },
+                    { name: "Sarah Lee", course: "UX Research", avatar: "/api/placeholder/40/40" }
+                ]
+            }
+        ];
+
+        function createMentorCard(mentor) {
+            return `
+                <div class="mentor-card">
+                    <div class="mentor-header">
+                        
+                        <div class="mentor-info">
+                            <h2>${mentor.name}</h2>
+                            <p>${mentor.title}</p>
+                            <p>${mentor.expertise}</p>
+                        </div>
+                    </div>
+                    <div class="mentor-stats">
+                        <div class="stat">
+                            <div class="stat-value">${mentor.yearsExperience}</div>
+                            <div class="stat-label">Years</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-value">${mentor.totalStudents}</div>
+                            <div class="stat-label">Total Students</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-value">${mentor.activeStudents}</div>
+                            <div class="stat-label">Active Students</div>
+                        </div>
+                    </div>
+                    <div class="students-list">
+                        <h3>Current Students</h3>
+                        ${mentor.students.map(student => `
+                            <div class="student-item">
+                             
+                                <div class="student-info">
+                                    <div class="student-name">${student.name}</div>
+                                    <div class="student-course">${student.course}</div>
+                                </div>
+                            </div>
+                        `).join('')}
+                    </div>
+                </div>
+            `;
+        }
+
+        function renderMentors(mentors) {
+            const mentorGrid = document.getElementById('mentorGrid');
+            mentorGrid.innerHTML = mentors.map(mentor => createMentorCard(mentor)).join('');
+        }
+
+        function filterMentors() {
+            const searchTerm = document.querySelector('.search-input').value.toLowerCase();
+            const filteredMentors = mentorsData.filter(mentor => 
+                mentor.name.toLowerCase().includes(searchTerm) ||
+                mentor.expertise.toLowerCase().includes(searchTerm) ||
+                mentor.title.toLowerCase().includes(searchTerm)
+            );
+            renderMentors(filteredMentors);
+        }
+
+        // Initial render
+        renderMentors(mentorsData);
+
+        // Add event listener for enter key on search input
+        document.querySelector('.search-input').addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                filterMentors();
+            }
+        });
+    </script>
+</body>
+</html>
