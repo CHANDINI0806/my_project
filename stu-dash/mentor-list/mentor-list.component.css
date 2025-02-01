@@ -1,0 +1,72 @@
+/* assistance.css */ :root { --primary-color: #4f46e5; --primary-light: #818cf8; --primary-dark: #4338ca; --success-color: #10b981; --warning-color: #f59e0b; --danger-color: #ef4444; --background-color: #f3f4f6; --card-color: #ffffff; --text-primary: #111827; --text-secondary: #6b7280; } 
+
+.assistance-container { max-width: 1200px; margin: 0 auto; padding: 2rem; background-color: var(--background-color); min-height: 100vh; } 
+
+.header { text-align: center; margin-bottom: 3rem; animation: fadeInDown 0.5s ease-out; } 
+
+.header h1 { font-size: 2.5rem; color: var(--text-primary); margin-bottom: 0.5rem; } 
+
+.header p { color: var(--text-secondary); font-size: 1.1rem; } 
+
+.choice-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; animation: fadeInUp 0.5s ease-out; } 
+
+.choice-card { background: var(--card-color); border-radius: 1rem; padding: 2rem; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1); transition: all 0.3s ease; position: relative; overflow: hidden; } 
+
+.choice-card:hover { transform: translateY(-5px); box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1); } 
+
+.choice-card::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 4px; background: linear-gradient(to right, var(--primary-color), var(--primary-light)); transform: scaleX(0); transform-origin: left; transition: transform 0.3s ease; } 
+
+.choice-card:hover::before { transform: scaleX(1); } 
+
+.card-icon { font-size: 3rem; margin-bottom: 1.5rem; display: inline-block; padding: 1rem; background: var(--background-color); border-radius: 1rem; } 
+
+.choice-card h2 { font-size: 1.5rem; color: var(--text-primary); margin-bottom: 1rem; } 
+
+.choice-card p { color: var(--text-secondary); margin-bottom: 1.5rem; } 
+
+.choice-card ul { list-style: none; padding: 0; margin-bottom: 2rem; } 
+
+.choice-card ul li { color: var(--text-secondary); margin-bottom: 0.5rem; padding-left: 1.5rem; position: relative; } 
+
+.choice-card ul li::before { content: '→'; position: absolute; left: 0; color: var(--primary-color); } 
+
+.action-button { display: inline-block; padding: 0.75rem 1.5rem; background: var(--primary-color); color: white; text-decoration: none; border-radius: 0.5rem; transition: all 0.3s ease; text-align: center; font-weight: 500; } 
+
+.action-button:hover { background: var(--primary-dark); transform: translateY(-2px); } 
+
+@keyframes fadeInDown { from { opacity: 0; transform: translateY(-20px); } to { opacity: 1; transform: translateY(0); } } 
+
+@keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } } 
+
+/* Responsive Design */ @media (max-width: 768px) { .assistance-container { padding: 1rem; } 
+
+.header h1 { 
+    font-size: 2rem; 
+} 
+ 
+.choice-cards { 
+    grid-template-columns: 1fr; 
+} 
+  
+
+} 
+a[href*="overview"] {
+    display: inline-block;
+    background-color: #007bff;  /* Blue color */
+    color: white;
+    padding: 8px 16px;
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+}
+
+a[href*="overview"]:hover {
+    background-color: #0056b3;  /* Darker blue on hover */
+    text-decoration: none;
+}
+
+a[href*="overview"]:active {
+    background-color: #004085;  /* Even darker when clicked */
+    transform: scale(0.98);
+}

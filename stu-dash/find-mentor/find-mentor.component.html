@@ -1,0 +1,233 @@
+<!-- assistance.html --> 
+
+<!DOCTYPE html> 
+
+<html lang="en"> 
+
+<head> 
+
+    <meta charset="UTF-8"> 
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+
+    <title>Course Selection - Get Assistance</title> 
+
+    <link rel="stylesheet" href="find-mentor.component.css"> 
+
+</head> 
+
+<body> 
+
+    <div class="container"> 
+
+        <!-- Header with Back Navigation --> 
+
+        <header class="header"> 
+
+            <a href="../mentor-list/mentor-list.component.html" class="back-link">← Back to Dashboard</a> 
+
+        </header> 
+
+  
+
+        <!-- Course Selection Section --> 
+
+        <section class="course-selection"> 
+
+            <h2>Select Your Course</h2> 
+
+            <div class="dropdown-container"> 
+
+                <select id="courseSelect" class="course-dropdown"> 
+
+                    <option value="" selected disabled>Choose a course...</option> 
+
+                    <option value="dbms">Database Management Systems (DBMS)</option> 
+
+                    <option value="os">Operating Systems (OS)</option> 
+
+                    <option value="dccn">Computer Networks (DCCN)</option> 
+
+                    <option value="dsa">Data Structures & Algorithms (DSA)</option> 
+
+                    <option value="ttpd">Theory of Programming (TTPD)</option> 
+
+                </select> 
+
+            </div> 
+
+        </section> 
+
+  
+
+        <!-- Teachers Section (Initially Hidden) --> 
+
+        <section id="teachersSection" class="teachers-section"> 
+
+            <h2>Available Teachers</h2> 
+
+            <div class="teachers-grid"> 
+
+                <!-- Teacher Card 1 --> 
+
+                <div class="teacher-card"> 
+
+                    <div class="teacher-img"> 
+
+                        <img src="https://img.freepik.com/free-vector/white-color-background-gradient-abstract-modern_343694-2130.jpg" alt="poster img"/>
+
+                    </div> 
+
+                    <div class="teacher-info"> 
+
+                        <h3>Dr. Johnson</h3> 
+
+                        <div class="rating"> 
+
+                            <span class="stars">★★★★</span><span class="empty-star">★</span> 
+
+                            <span class="rating-text">4.2/5</span> 
+
+                        </div> 
+
+                        <p class="description">Research specialist in Advanced Database Concepts. Known for clear explanations and structured teaching approach.</p> 
+
+                        <button class="select-teacher">Choose Teacher</button> 
+
+                    </div> 
+
+                </div> 
+
+                <div class="teacher-card"> 
+
+                    <div class="teacher-img"> 
+
+                        <img src="https://img.freepik.com/free-vector/white-color-background-gradient-abstract-modern_343694-2130.jpg" alt="poster img"/>
+
+                    </div> 
+
+                    <div class="teacher-info"> 
+
+                        <h3>Dr. Johnson</h3> 
+
+                        <div class="rating"> 
+
+                            <span class="stars">★★★★</span><span class="empty-star">★</span> 
+
+                            <span class="rating-text">4.2/5</span> 
+
+                        </div> 
+
+                        <p class="description">Research specialist in Advanced Database Concepts. Known for clear explanations and structured teaching approach.</p> 
+
+                        <button class="select-teacher">Choose Teacher</button> 
+
+                    </div> 
+
+                </div> 
+
+            </div> 
+
+        </section> 
+
+  
+
+        <!-- Packages Section (Initially Hidden) --> 
+
+        <section id="packagesSection" class="packages-section"> 
+
+            <h2>Available Packages</h2> 
+
+            <div class="packages-grid"> 
+
+                <!-- Premium Package --> 
+
+                <div class="package-card premium"> 
+
+                    <div class="package-tag">Premium</div> 
+
+                    <h3>Direct Teacher Tutoring</h3> 
+
+                    <div class="price">₹1,500<span>/hour</span></div> 
+
+                    <ul class="features"> 
+
+                        <li>1-on-1 sessions with professor</li> 
+
+                        <li>Customized study plan</li> 
+
+                        <li>Priority doubt clearing</li> 
+
+                        <li>Practice tests included</li> 
+
+                    </ul> 
+
+                    <button class="apply-btn gold">Apply Now</button> 
+
+                </div> 
+
+  
+
+                <!-- Balanced Package --> 
+
+                <div class="package-card balanced"> 
+
+                    <div class="package-tag">Balanced</div> 
+
+                    <h3>TA-Supervised Assistance</h3> 
+
+                    <div class="price">₹800<span>/hour</span></div> 
+
+                    <ul class="features"> 
+
+                        <li>Sessions with experienced TA</li> 
+
+                        <li>Teacher-reviewed content</li> 
+
+                        <li>Regular assessments</li> 
+
+                        <li>Group doubt sessions</li> 
+
+                    </ul> 
+
+                    <button class="apply-btn blue">Apply Now</button> 
+
+                </div> 
+
+  
+
+                <!-- Budget Package --> 
+
+                <div class="package-card budget"> 
+
+                    <div class="package-tag">Budget-Friendly</div> 
+
+                    <h3>Peer Mentorship</h3> 
+
+                    <div class="price">₹400<span>/hour</span></div> 
+
+                    <ul class="features"> 
+
+                        <li>Learn from top students</li> 
+
+                        <li>Study groups</li> 
+
+                        <li>Basic study materials</li> 
+
+                        <li>Online support</li> 
+
+                    </ul> 
+
+                    <button class="apply-btn green">Apply Now</button> 
+
+                </div> 
+
+            </div> 
+
+        </section> 
+
+    </div> 
+
+</body> 
+
+</html> 
