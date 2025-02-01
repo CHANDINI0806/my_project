@@ -50,23 +50,28 @@
   
 
 } 
-a[href*="overview"] {
+a[href*="mentor-list"] {
     display: inline-block;
-    background-color: #007bff;  /* Blue color */
+    background-color: #6c757d;  /* Gray color that matches the dashboard theme */
     color: white;
     padding: 8px 16px;
     text-decoration: none;
     border-radius: 4px;
     font-weight: 500;
-    transition: background-color 0.3s ease;
+    transition: all 0.3s ease;
+    margin: 10px 0;
+    border: none;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
-a[href*="overview"]:hover {
-    background-color: #0056b3;  /* Darker blue on hover */
+a[href*="mentor-list"]:hover {
+    background-color: #5a6268;  /* Darker gray on hover */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
     text-decoration: none;
 }
 
-a[href*="overview"]:active {
-    background-color: #004085;  /* Even darker when clicked */
+a[href*="mentor-list"]:active {
+    background-color: #495057;  /* Even darker when clicked */
     transform: scale(0.98);
+    box-shadow: 0 1px 2px rgba(0,0,0,0.1);
 }
