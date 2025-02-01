@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Become a Mentor - Application</title>
+    <link rel="stylesheet" href="apply-ta.component.css">
+</head>
+
+<body>
+
+    <div class="mentor-container">
+
+        <nav class="breadcrumb">
+            <a href="../mentor-list/mentor-list.component.html">Assistance Hub</a> > Become a Mentor
+        </nav>
+
+        <div class="application-section">
+            <h2>Teaching Assistant Application</h2>
+
+            <!-- Form to submit application -->
+            <form id="mentorForm" class="mentor-form" action="#" method="POST">
+                <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="rollNumber">Roll Number</label>
+                    <input type="text" id="rollNumber" name="rollNumber" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="semester">Current Semester</label>
+                    <select id="semester" name="semester" required>
+                        <option value="">Select Semester</option>
+                        <option value="5">5th Semester</option>
+                        <option value="6">6th Semester</option>
+                        <option value="7">7th Semester</option>
+                        <option value="8">8th Semester</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" name="phone" pattern="[0-9]{10}" required>
+                </div>
+
+                <!-- Submit Button -->
+                <div class="form-actions">
+                    <button type="submit" id="submitBtn" class="submit-btn">Submit Application</button>
+                </div>
+            </form>
+        </div>
+
+    </div>
+
+</body>
+
+</html>
